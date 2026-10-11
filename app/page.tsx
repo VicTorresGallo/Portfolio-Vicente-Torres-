@@ -1,69 +1,164 @@
+"use client";
+
 import Image from "next/image";
+import Nav from "@/components/Nav";
+import Projects from "@/components/Projects";
+import { useLanguage } from "@/components/LanguageProvider";
+import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, PinIcon } from "@/components/Icons";
+import { profile } from "@/data/profile";
+import { asset } from "@/lib/asset";
 
 export default function Home() {
+  const { lang, t } = useLanguage();
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+    <>
+      <Nav />
+      <main id="top" className="container">
+        <section className="hero">
+          <div className="hero-text">
+            <p className="eyebrow">
+              <span className="dot" aria-hidden /> {t.available}
+            </p>
+            <h1>
+              {profile.name.split(" ")[0]}
+              <br />
+              <span>{profile.name.split(" ").slice(1).join(" ")}</span>
+            </h1>
+            <p className="role">{t.role}</p>
+            <p className="tagline">{t.tagline}</p>
+            <div className="actions">
+              <a className="btn btn--primary" href={`mailto:${profile.email}`}>
+                <MailIcon /> {t.nav.contact}
+              </a>
+              <a className="btn" href={profile.github} target="_blank" rel="noreferrer">
+                <GitHubIcon /> GitHub
+              </a>
+              <a className="btn" href={profile.linkedin} target="_blank" rel="noreferrer">
+                <LinkedInIcon /> LinkedIn
+              </a>
+              {profile.cv && (
+                <a className="btn" href={asset(profile.cv[lang])} download>
+                  <DownloadIcon /> {t.downloadCv}
+                </a>
+              )}
+            </div>
+          </div>
+
+          <div className="avatar">
+            {profile.photo ? (
+              <Image src={asset(profile.photo)} alt={profile.name} fill sizes="260px" priority />
+            ) : (
+              <span aria-hidden>VT</span>
+            )}
+          </div>
+        </section>
+
+        <section className="section about">
+          <h2>{t.aboutTitle}</h2>
+          <div className="about-body">
+            {profile.about[lang].map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+            <p className="location">
+              <PinIcon /> {profile.location[lang]}
+            </p>
+          </div>
+        </section>
+
+        <Projects category="games" />
+        <Projects category="web" />
+
+        <section id="experience" className="section">
+          <h2>{t.nav.experience}</h2>
+          <div className="columns">
+            <div>
+              <h3 className="col-title">{t.experienceTitle}</h3>
+              <ol className="timeline">
+                {profile.experience.map((e) => (
+                  <li key={e.org}>
+                    <span className="period">{e.period[lang]}</span>
+                    <h4>{e.title[lang]}</h4>
+                    <p className="org">{e.org}</p>
+                    <ul>
+                      {e.points.map((pt) => (
+                        <li key={pt.es}>{pt[lang]}</li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div>
+              <h3 className="col-title">{t.educationTitle}</h3>
+              <ol className="timeline">
+                {profile.education.map((e) => (
+                  <li key={e.org}>
+                    <span className="period">{e.period[lang]}</span>
+                    <h4>{e.title[lang]}</h4>
+                    <p className="org">{e.org}</p>
+                    {e.detail && <p className="edu-detail">{e.detail[lang]}</p>}
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" className="section">
+          <h2>{t.skillsTitle}</h2>
+          <div className="skills">
+            {profile.skills.map((s) => (
+              <div key={s.group.en} className="skill-group">
+                <h3>{s.group[lang]}</h3>
+                <ul className="tags">
+                  {s.items.map((i) => (
+                    <li key={i}>{i}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            <div className="skill-group">
+              <h3>{t.languagesTitle}</h3>
+              <ul className="langs">
+                {profile.languages.map((l) => (
+                  <li key={l.name.en}>
+                    <span>{l.name[lang]}</span>
+                    <span className="level">{l.level[lang]}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="section contact">
+          <h2>{t.contactTitle}</h2>
+          <p>{t.contactText}</p>
+          <a className="contact-mail" href={`mailto:${profile.email}`}>
+            {profile.email}
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          <div className="actions">
+            {profile.cv && (
+              <a className="btn btn--primary" href={asset(profile.cv[lang])} download>
+                <DownloadIcon /> {t.downloadCv}
+              </a>
+            )}
+            <a className="btn" href={profile.github} target="_blank" rel="noreferrer">
+              <GitHubIcon /> GitHub
+            </a>
+            <a className="btn" href={profile.linkedin} target="_blank" rel="noreferrer">
+              <LinkedInIcon /> LinkedIn
+            </a>
+          </div>
+        </section>
       </main>
-    </div>
+
+      <footer className="footer">
+        <div className="container">
+          © {new Date().getFullYear()} {profile.name} · {t.footer}
+        </div>
+      </footer>
+    </>
   );
 }

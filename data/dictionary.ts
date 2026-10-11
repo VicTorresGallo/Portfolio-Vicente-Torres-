@@ -1,0 +1,80 @@
+export const dictionary = {
+  es: {
+    nav: { games: "Videojuegos", web: "Web", experience: "Trayectoria", skills: "Habilidades", contact: "Contacto" },
+    role: "Ingeniero Multimedia",
+    tagline:
+      "Desarrollo videojuegos y experiencias interactivas, de Unity y Unreal a motores propios en C++, y aplicaciones web full-stack.",
+    available: "Disponible para prácticas y primeras oportunidades",
+    aboutTitle: "Sobre mí",
+    categories: { games: "Videojuegos", web: "Proyectos web" },
+    links: { repo: "Código", download: "Descargar", demo: "Ver web", video: "Vídeo", itch: "itch.io", web: "Web", doc: "Documentación" },
+    viewMore: "Ver proyecto",
+    back: "Volver",
+    overview: "Sobre el proyecto",
+    features: "Características",
+    gallery: "Galería",
+    video: "Vídeo",
+    details: "Ficha",
+    year: "Año",
+    facts: { context: "Contexto", platform: "Plataforma", tech: "Tecnología", team: "Equipo", duration: "Duración" },
+    next: "Siguiente proyecto",
+    close: "Cerrar",
+    myRole: "Mi rol",
+    experienceTitle: "Experiencia",
+    educationTitle: "Formación",
+    skillsTitle: "Habilidades",
+    languagesTitle: "Idiomas",
+    contactTitle: "Contacto",
+    contactText:
+      "¿Tienes un proyecto, una oferta de prácticas o simplemente quieres hablar? Escríbeme.",
+    downloadCv: "Descargar CV",
+    footer: "Hecho con Next.js",
+    switchTo: "EN",
+    switchLabel: "Switch to English",
+    themeLight: "Cambiar a modo claro",
+    themeDark: "Cambiar a modo oscuro",
+  },
+  en: {
+    nav: { games: "Games", web: "Web", experience: "Background", skills: "Skills", contact: "Contact" },
+    role: "Multimedia Engineer",
+    tagline:
+      "I build games and interactive experiences, from Unity and Unreal to custom C++ engines, plus full-stack web apps.",
+    available: "Open to internships and first opportunities",
+    aboutTitle: "About me",
+    categories: { games: "Video games", web: "Web projects" },
+    links: { repo: "Code", download: "Download", demo: "Live site", video: "Video", itch: "itch.io", web: "Website", doc: "Documentation" },
+    viewMore: "View project",
+    back: "Back",
+    overview: "About the project",
+    features: "Features",
+    gallery: "Gallery",
+    video: "Video",
+    details: "Details",
+    year: "Year",
+    facts: { context: "Context", platform: "Platform", tech: "Technology", team: "Team", duration: "Duration" },
+    next: "Next project",
+    close: "Close",
+    myRole: "My role",
+    experienceTitle: "Experience",
+    educationTitle: "Education",
+    skillsTitle: "Skills",
+    languagesTitle: "Languages",
+    contactTitle: "Contact",
+    contactText:
+      "Have a project, an internship offer or just want to talk? Drop me a message.",
+    downloadCv: "Download CV",
+    footer: "Built with Next.js",
+    switchTo: "ES",
+    switchLabel: "Cambiar a español",
+    themeLight: "Switch to light mode",
+    themeDark: "Switch to dark mode",
+  },
+} as const;
+
+export type Lang = keyof typeof dictionary;
+export type Localized = Record<Lang, string>;
+
+export type Text = string | Localized;
+
+export const tr = (value: Text, lang: Lang) =>
+  typeof value === "string" ? value : value[lang];
