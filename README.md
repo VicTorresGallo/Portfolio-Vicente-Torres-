@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vicente Torres Gallo · Portfolio
 
-## Getting Started
+Ingeniero Multimedia por la Universidad de Alicante. Desarrollo **videojuegos y experiencias interactivas** (Unreal Engine, Unity, C++) y **aplicaciones web full-stack** (Angular, Node, React).
 
-First, run the development server:
+**[Ver la web](https://vicente-torres-gallo.vercel.app)** · **[CV en PDF](public/cv/Vicente-Torres-Gallo-CV-ES.pdf)** ([English](public/cv/Vicente-Torres-Gallo-CV-EN.pdf)) · **[LinkedIn](https://www.linkedin.com/in/vicente-torres-gallo-353501264)** · vicentorresgallo@gmail.com
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+![Portada del portfolio](public/images/projects/portfolio/cover.jpg)
+
+## Proyectos destacados
+
+| Proyecto | Qué es | Tecnología |
+|---|---|---|
+| [EscAPE](https://vicente-torres-gallo.vercel.app/proyectos/escape-vr/) | Experiencia de realidad virtual para Meta Quest 3 (individual) | Unreal Engine 5.5, Blueprints, C++ |
+| [Escape Room Lab](https://vicente-torres-gallo.vercel.app/proyectos/escape-room-lab/) | Escape room 3D con puzles de físicas, prueba técnica para Virtual Zone | Unity 6, C#, Blender |
+| [Bubble Buddies](https://vicente-torres-gallo.vercel.app/proyectos/bubble-buddies/) | 🏆 1.er puesto en la GameJam Alicante 2025: plataformas controlado con la voz | Unity, Blender |
+| [Donut Panic!](https://vicente-torres-gallo.vercel.app/proyectos/donut-panic/) | FPS sobre un motor gráfico y de juego propios, en equipo de 5 | C++, motor propio |
+| [Forgotten Wonders](https://vicente-torres-gallo.vercel.app/proyectos/forgotten-wonders/) | RPG con combates por minijuegos y enemigos con A* | C++, SFML |
+| [Cosmic Muncher](https://vicente-torres-gallo.vercel.app/proyectos/cosmic-muncher/) | Juego para la Game Boy original con motor ECS | Ensamblador |
+| [Registro de Fichajes](https://vicente-torres-gallo.vercel.app/proyectos/registro-fichajes/) | App multiplataforma de control horario con geolocalización | Angular, Ionic, Node, MySQL |
+| [ToDo App + microservicios](https://vicente-torres-gallo.vercel.app/proyectos/todo-app/) | SPA con API REST y autenticación JWT | Angular, Express, MongoDB |
+
+Cada proyecto tiene en la web su página con descripción, mi rol, galería y vídeo.
+
+## Sobre esta web
+
+Hecha con **Next.js 16** (App Router), **React 19** y **TypeScript**, exportada como web estática y publicada en **Vercel**. Sin librerías de componentes ni de estilos: CSS propio con variables.
+
+- **Contenido separado del diseño:** proyectos, perfil y textos viven en archivos de datos tipados (`data/`). Añadir un proyecto es añadir un objeto; la tarjeta, su página y la navegación se generan solas.
+- **Bilingüe sin librerías:** español e inglés con un diccionario tipado y un store de React (`useSyncExternalStore`) que recuerda el idioma.
+- **Modo claro y oscuro sin parpadeo:** un script mínimo aplica el tema guardado (o el del sistema) antes de pintar la página.
+- **CV generado desde los mismos datos:** `/curriculum/es` y `/curriculum/en` son páginas A4 que se imprimen a PDF, así que la web y el CV no se desincronizan.
+- **Páginas de proyecto estáticas** con `generateStaticParams`, galería con visor (`<dialog>` nativo) y vídeos de YouTube incrustados sin cookies.
+- **Diseño adaptado a móvil** y accesible: navegación por teclado, `aria-*` y respeto a `prefers-reduced-motion`.
+
+```
+app/            Rutas: portada, /proyectos/[slug] y /curriculum/[lang]
+components/     Tarjetas, página de proyecto, navegación, idioma y tema
+data/           Contenido: perfil, proyectos, CV y textos de la interfaz
+public/         Imágenes de los proyectos y PDF del CV
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Ejecutar en local
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Abre <http://localhost:3000>.
