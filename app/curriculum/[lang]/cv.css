@@ -64,7 +64,8 @@
 
 @page { size: A4; margin: 0; }
 @media print {
-  html, body { background: #fff !important; }
-  .cv-screen { padding: 0; background: none; min-height: 0; }
-  .cv { box-shadow: none; }
+  /* Altura fija y sin desbordes: si algo pasa de 297 mm, el navegador añade una página en blanco */
+  html, body { background: #fff !important; margin: 0; height: 297mm; overflow: hidden; }
+  .cv-screen { padding: 0; background: none; min-height: 0; height: 297mm; overflow: hidden; }
+  .cv { box-shadow: none; break-after: avoid; }
 }
