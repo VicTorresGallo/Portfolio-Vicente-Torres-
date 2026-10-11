@@ -518,7 +518,7 @@ export const projects: Project[] = [
       tech: "Next.js · React · TypeScript · Vercel",
     },
     links: [
-      { kind: "repo", url: gh("portfolio") },
+      { kind: "repo", url: gh("Portfolio-Vicente-Torres-") },
       { kind: "demo", url: "https://vicente-torres-gallo.vercel.app" },
     ],
   },
