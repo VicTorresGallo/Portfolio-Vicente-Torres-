@@ -1,63 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
 import Nav from "@/components/Nav";
 import Projects from "@/components/Projects";
-import TechIcon from "@/components/TechIcon";
 import { useLanguage } from "@/components/LanguageProvider";
-import {
-  BriefcaseIcon,
-  CapIcon,
-  CodeIcon,
-  CubeIcon,
-  DatabaseIcon,
-  DevicesIcon,
-  DownloadIcon,
-  GitHubIcon,
-  LinkedInIcon,
-  MailIcon,
-  PinIcon,
-  SparklesIcon,
-  TranslateIcon,
-} from "@/components/Icons";
+import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, PinIcon } from "@/components/Icons";
 import { tr } from "@/data/dictionary";
 import { profile } from "@/data/profile";
 import { asset } from "@/lib/asset";
-import { useMotion } from "@/lib/useMotion";
-
-// Icono de cada grupo de habilidades (por su nombre en inglés)
-const groupIcon: Record<string, React.ReactNode> = {
-  Languages: <CodeIcon size={18} />,
-  "Engines & 3D": <CubeIcon size={18} />,
-  "Web & mobile": <DevicesIcon size={18} />,
-  "Data & systems": <DatabaseIcon size={18} />,
-  "Artificial intelligence": <SparklesIcon size={18} />,
-};
 
 export default function Home() {
   const { lang, t } = useLanguage();
-  const main = useRef<HTMLElement>(null);
-  useMotion(main);
 
   return (
     <>
       <Nav />
-      <main id="top" className="container" ref={main}>
+      <main id="top" className="container">
         <section className="hero">
           <div className="hero-text">
-            <h1 data-intro>
+            <h1>
               {profile.name.split(" ")[0]}
               <br />
               <span>{profile.name.split(" ").slice(1).join(" ")}</span>
             </h1>
-            <p className="role" data-intro>
-              {t.role}
-            </p>
-            <p className="tagline" data-intro>
-              {t.tagline}
-            </p>
-            <div className="actions" data-intro>
+            <p className="role">{t.role}</p>
+            <p className="tagline">{t.tagline}</p>
+            <div className="actions">
               <a className="btn btn--primary" href={`mailto:${profile.email}`}>
                 <MailIcon /> {t.nav.contact}
               </a>
@@ -75,7 +43,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="avatar" data-intro-photo>
+          <div className="avatar">
             {profile.photo ? (
               <Image src={asset(profile.photo)} alt={profile.name} fill sizes="260px" priority />
             ) : (
@@ -85,8 +53,8 @@ export default function Home() {
         </section>
 
         <section className="section about">
-          <h2 data-reveal>{t.aboutTitle}</h2>
-          <div className="about-body" data-reveal>
+          <h2>{t.aboutTitle}</h2>
+          <div className="about-body">
             {profile.about[lang].map((p) => (
               <p key={p}>{p}</p>
             ))}
@@ -97,12 +65,10 @@ export default function Home() {
         </section>
 
         <section id="experience" className="section">
-          <h2 data-reveal>{t.nav.experience}</h2>
+          <h2>{t.nav.experience}</h2>
           <div className="columns">
-            <div data-reveal>
-              <h3 className="col-title">
-                <BriefcaseIcon /> {t.experienceTitle}
-              </h3>
+            <div>
+              <h3 className="col-title">{t.experienceTitle}</h3>
               <ol className="timeline">
                 {profile.experience.map((e) => (
                   <li key={e.org}>
@@ -118,10 +84,8 @@ export default function Home() {
                 ))}
               </ol>
             </div>
-            <div data-reveal>
-              <h3 className="col-title">
-                <CapIcon /> {t.educationTitle}
-              </h3>
+            <div>
+              <h3 className="col-title">{t.educationTitle}</h3>
               <ol className="timeline">
                 {profile.education.map((e) => (
                   <li key={e.org}>
@@ -137,34 +101,21 @@ export default function Home() {
         </section>
 
         <section id="skills" className="section">
-          <h2 data-reveal>{t.skillsTitle}</h2>
+          <h2>{t.skillsTitle}</h2>
           <div className="skills">
             {profile.skills.map((s) => (
-              <div key={s.group.en} className="skill-group" data-reveal>
-                <h3>
-                  <span className="skill-icon">{groupIcon[s.group.en]}</span>
-                  {s.group[lang]}
-                </h3>
+              <div key={s.group.en} className="skill-group">
+                <h3>{s.group[lang]}</h3>
                 <ul className="tags">
                   {s.items.map((i) => {
                     const label = tr(i, lang);
-                    return (
-                      <li key={label}>
-                        <TechIcon label={label} />
-                        {label}
-                      </li>
-                    );
+                    return <li key={label}>{label}</li>;
                   })}
                 </ul>
               </div>
             ))}
-            <div className="skill-group" data-reveal>
-              <h3>
-                <span className="skill-icon">
-                  <TranslateIcon size={18} />
-                </span>
-                {t.languagesTitle}
-              </h3>
+            <div className="skill-group">
+              <h3>{t.languagesTitle}</h3>
               <ul className="langs">
                 {profile.languages.map((l) => (
                   <li key={l.name.en}>
@@ -181,11 +132,12 @@ export default function Home() {
         <Projects category="games" />
 
         <section id="contact" className="section contact">
-          <h2 data-reveal>{t.contactTitle}</h2>
-          <a className="contact-mail" href={`mailto:${profile.email}`} data-reveal>
+          <h2>{t.contactTitle}</h2>
+          <p>{t.contactText}</p>
+          <a className="contact-mail" href={`mailto:${profile.email}`}>
             {profile.email}
           </a>
-          <div className="actions" data-reveal>
+          <div className="actions">
             {profile.cv && (
               <a className="btn btn--primary" href={asset(profile.cv[lang])} download>
                 <DownloadIcon /> {t.downloadCv}
@@ -203,7 +155,7 @@ export default function Home() {
 
       <footer className="footer">
         <div className="container">
-          © {new Date().getFullYear()} {profile.name}
+          © {new Date().getFullYear()} {profile.name} · {t.footer}
         </div>
       </footer>
     </>

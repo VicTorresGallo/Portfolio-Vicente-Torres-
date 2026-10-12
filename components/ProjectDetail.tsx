@@ -5,13 +5,11 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import Nav from "./Nav";
 import ProjectCover from "./ProjectCover";
-import TechIcon from "./TechIcon";
 import { useLanguage } from "./LanguageProvider";
 import { DocIcon, DownloadIcon, ExternalIcon, GitHubIcon } from "./Icons";
 import { tr } from "@/data/dictionary";
 import { projects, type FactKey, type LinkKind, type Project } from "@/data/projects";
 import { asset } from "@/lib/asset";
-import { useMotion } from "@/lib/useMotion";
 
 const linkIcon: Record<LinkKind, React.ReactNode> = {
   repo: <GitHubIcon size={16} />,
@@ -31,8 +29,6 @@ export default function ProjectDetail({ project }: { project: Project }) {
   const [zoomed, setZoomed] = useState<number | null>(null);
   const [playing, setPlaying] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
-  const main = useRef<HTMLElement>(null);
-  useMotion(main);
 
   // Siguiente proyecto de la misma categoría (vuelve al primero al llegar al final)
   const sameCategory = projects.filter((p) => p.category === project.category);
@@ -49,46 +45,35 @@ export default function ProjectDetail({ project }: { project: Project }) {
   return (
     <>
       <Nav />
-      <main className="container detail" ref={main}>
-        <Link href={`/#${project.category}`} className="back" data-intro>
+      <main className="container detail">
+        <Link href={`/#${project.category}`} className="back">
           ← {t.back} · {t.categories[project.category]}
         </Link>
 
         <header className="detail-head">
-          {project.highlight && (
-            <p className="card-highlight" data-intro>
-              {project.highlight[lang]}
-            </p>
-          )}
-          <h1 data-intro>{title}</h1>
-          <p className="detail-summary" data-intro>{project.summary[lang]}</p>
-          <ul className="tags" data-intro>
+          {project.highlight && <p className="card-highlight">{project.highlight[lang]}</p>}
+          <h1>{title}</h1>
+          <p className="detail-summary">{project.summary[lang]}</p>
+          <ul className="tags">
             {project.tags.map((tag) => {
               const label = tr(tag, lang);
-              return (
-                <li key={label}>
-                  <TechIcon label={label} />
-                  {label}
-                </li>
-              );
+              return <li key={label}>{label}</li>;
             })}
           </ul>
         </header>
 
-        <div data-intro-photo>
-          <ProjectCover
-            project={project}
-            title={title}
-            sizes="(max-width: 1080px) 100vw, 1040px"
-            priority
-            className="detail-cover"
-          />
-        </div>
+        <ProjectCover
+          project={project}
+          title={title}
+          sizes="(max-width: 1080px) 100vw, 1040px"
+          priority
+          className="detail-cover"
+        />
 
         <div className="detail-grid">
           <div className="detail-main">
             {project.body && (
-              <section data-reveal>
+              <section>
                 <h2>{t.overview}</h2>
                 {project.body[lang].map((p) => (
                   <p key={p}>{p}</p>
@@ -97,7 +82,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             )}
 
             {project.features && (
-              <section data-reveal>
+              <section>
                 <h2>{t.features}</h2>
                 <ul className="bullets">
                   {project.features.map((f) => (
@@ -108,7 +93,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             )}
 
             {project.role && (
-              <section data-reveal>
+              <section>
                 <h2>{t.myRole}</h2>
                 <p>{project.role[lang]}</p>
                 {project.roleDetails && (
@@ -122,7 +107,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             )}
           </div>
 
-          <aside className="detail-side" data-reveal>
+          <aside className="detail-side">
             <h2>{t.details}</h2>
             <dl>
               <div>
@@ -153,7 +138,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         </div>
 
         {project.play && (
-          <section className="detail-section" data-reveal>
+          <section className="detail-section">
             <h2>{t.play}</h2>
             <div className="player" style={{ aspectRatio: project.play.aspect ?? "16 / 9" }}>
               {playing ? (
@@ -184,7 +169,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         )}
 
         {project.youtube && (
-          <section className="detail-section" data-reveal>
+          <section className="detail-section">
             <h2>{t.video}</h2>
             <div className="video">
               <iframe
@@ -199,7 +184,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         )}
 
         {project.gallery && (
-          <section className="detail-section" data-reveal>
+          <section className="detail-section">
             <h2>{t.gallery}</h2>
             <div className={`gallery${project.pixelated ? " cover--pixel" : ""}${project.portraitGallery ? " gallery--portrait" : ""}`}>
               {project.gallery.map((g, i) => (
@@ -216,7 +201,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
           </section>
         )}
 
-        <Link href={`/proyectos/${next.id}/`} className="next-project" data-reveal>
+        <Link href={`/proyectos/${next.id}/`} className="next-project">
           <span>{t.next}</span>
           <strong>{tr(next.title, lang)} →</strong>
         </Link>

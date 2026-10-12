@@ -22,9 +22,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Antes de pintar: aplica el tema guardado (o el del sistema) y, si hay animaciones,
-// oculta la portada hasta que GSAP arranque. A los 3 s se muestra pase lo que pase.
-const themeScript = `try{var d=document.documentElement,t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}d.dataset.theme=t}catch(e){}try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("motion-pending");setTimeout(function(){document.documentElement.classList.remove("motion-pending")},3000)}}catch(e){}`;
+// Aplica el tema guardado (o el del sistema) antes de pintar, para evitar un parpadeo
+const themeScript = `try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}document.documentElement.dataset.theme=t}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
