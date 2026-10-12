@@ -219,3 +219,11 @@ export function CapIcon({ size = 16 }: IconProps) {
     </svg>
   );
 }
+
+export function ArrowUpIcon({ size = 18 }: IconProps) {
+  return (
+    <svg {...line(size)} strokeWidth={2.2}>
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  );
+}

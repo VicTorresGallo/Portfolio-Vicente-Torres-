@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
+import BackToTop from "./BackToTop";
 import Nav from "./Nav";
 import ProjectCover from "./ProjectCover";
 import TechIcon from "./TechIcon";
@@ -223,6 +224,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
           <strong>{tr(next.title, lang)} →</strong>
         </Link>
       </main>
+
+      <BackToTop />
+
 
       <dialog
         ref={dialog}

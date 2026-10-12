@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef } from "react";
+import BackToTop from "@/components/BackToTop";
 import Nav from "@/components/Nav";
 import Projects from "@/components/Projects";
 import TechIcon from "@/components/TechIcon";
@@ -217,6 +218,7 @@ export default function Home() {
           © {new Date().getFullYear()} {profile.name}
         </div>
       </footer>
+      <BackToTop />
     </>
   );
 }

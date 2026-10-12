@@ -280,6 +280,18 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .contact-mail:hover { text-decoration: underline; }
 .contact .actions { justify-content: center; }
 
+/* Botón «volver al inicio» */
+.to-top {
+  position: fixed; right: 20px; bottom: 20px; z-index: 15; width: 46px; height: 46px; border-radius: 50%;
+  display: grid; place-items: center; cursor: pointer;
+  background: var(--surface); color: var(--text); border: 1px solid var(--border); box-shadow: var(--card-shadow);
+  opacity: 0; visibility: hidden; transform: translateY(14px);
+  transition: opacity .3s, transform .3s cubic-bezier(.2, .8, .2, 1), visibility .3s, border-color .2s, color .2s;
+}
+.to-top--show { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { border-color: var(--accent); color: var(--accent); }
+.to-top:hover svg { transform: translateY(-2px); transition: transform .2s; }
+
 .footer { border-top: 1px solid var(--border); padding: 24px 0; color: var(--muted); font-size: .85rem; text-align: center; }
 
 @media (max-width: 800px) {
@@ -301,5 +313,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .card, .btn, .cover img, .gallery-item img, .card-link, .card-more { transition: none; }
+  .to-top, .to-top svg { transition: none; }
   .card:hover, .btn:hover, .card:hover .cover img, .gallery-item:hover img, .card:hover .card-more { transform: none; }
 }
