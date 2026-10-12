@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageProvider";
+import ScrollReset from "@/components/ScrollReset";
 import { profile } from "@/data/profile";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
@@ -35,7 +36,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          <ScrollReset />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
