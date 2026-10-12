@@ -4,7 +4,6 @@ export const dictionary = {
     role: "Ingeniero Multimedia",
     tagline:
       "Desarrollo videojuegos y experiencias interactivas, de Unity y Unreal a motores propios en C++, y aplicaciones web full-stack.",
-    available: "Disponible para prácticas y primeras oportunidades",
     aboutTitle: "Sobre mí",
     categories: { games: "Videojuegos", web: "Proyectos web" },
     links: { repo: "Código", download: "Descargar", demo: "Ver web", video: "Vídeo", itch: "itch.io", web: "Web", doc: "Documentación" },
@@ -42,7 +41,6 @@ export const dictionary = {
     role: "Multimedia Engineer",
     tagline:
       "I build games and interactive experiences, from Unity and Unreal to custom C++ engines, plus full-stack web apps.",
-    available: "Open to internships and first opportunities",
     aboutTitle: "About me",
     categories: { games: "Video games", web: "Web projects" },
     links: { repo: "Code", download: "Download", demo: "Live site", video: "Video", itch: "itch.io", web: "Website", doc: "Documentation" },

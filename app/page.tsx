@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Projects from "@/components/Projects";
 import { useLanguage } from "@/components/LanguageProvider";
 import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, PinIcon } from "@/components/Icons";
+import { tr } from "@/data/dictionary";
 import { profile } from "@/data/profile";
 import { asset } from "@/lib/asset";
 
@@ -17,9 +18,6 @@ export default function Home() {
       <main id="top" className="container">
         <section className="hero">
           <div className="hero-text">
-            <p className="eyebrow">
-              <span className="dot" aria-hidden /> {t.available}
-            </p>
             <h1>
               {profile.name.split(" ")[0]}
               <br />
@@ -66,9 +64,6 @@ export default function Home() {
           </div>
         </section>
 
-        <Projects category="games" />
-        <Projects category="web" />
-
         <section id="experience" className="section">
           <h2>{t.nav.experience}</h2>
           <div className="columns">
@@ -112,9 +107,10 @@ export default function Home() {
               <div key={s.group.en} className="skill-group">
                 <h3>{s.group[lang]}</h3>
                 <ul className="tags">
-                  {s.items.map((i) => (
-                    <li key={i}>{i}</li>
-                  ))}
+                  {s.items.map((i) => {
+                    const label = tr(i, lang);
+                    return <li key={label}>{label}</li>;
+                  })}
                 </ul>
               </div>
             ))}
@@ -131,6 +127,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <Projects category="web" />
+        <Projects category="games" />
 
         <section id="contact" className="section contact">
           <h2>{t.contactTitle}</h2>

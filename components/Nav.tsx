@@ -8,10 +8,10 @@ import { useLanguage } from "./LanguageProvider";
 export default function Nav() {
   const { t } = useLanguage();
   const items = [
-    ["games", t.nav.games],
-    ["web", t.nav.web],
     ["experience", t.nav.experience],
     ["skills", t.nav.skills],
+    ["web", t.nav.web],
+    ["games", t.nav.games],
     ["contact", t.nav.contact],
   ] as const;
 

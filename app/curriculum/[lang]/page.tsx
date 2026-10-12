@@ -74,7 +74,7 @@ export default async function CvPage({ params }: { params: Promise<{ lang: strin
             {profile.skills.map((s) => (
               <div key={s.group.en} className="cv-skill">
                 <h3>{s.group[lang]}</h3>
-                <p>{s.items.join(" · ")}</p>
+                <p>{s.items.map((i) => tr(i, lang)).join(" · ")}</p>
               </div>
             ))}
           </section>

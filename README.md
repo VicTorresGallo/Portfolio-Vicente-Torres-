@@ -10,9 +10,9 @@ Ingeniero Multimedia por la Universidad de Alicante. Desarrollo **videojuegos y 
 
 | Proyecto | Qué es | Tecnología |
 |---|---|---|
+| [Bubble Buddies](https://vicente-torres-gallo.vercel.app/proyectos/bubble-buddies/) | 🏆 1.er puesto en la GameJam Alicante 2025: plataformas controlado con la voz | Unity, Blender |
 | [EscAPE](https://vicente-torres-gallo.vercel.app/proyectos/escape-vr/) | Experiencia de realidad virtual para Meta Quest 3 (individual) | Unreal Engine 5.5, Blueprints, C++ |
 | [Escape Room Lab](https://vicente-torres-gallo.vercel.app/proyectos/escape-room-lab/) | Escape room 3D con puzles de físicas, prueba técnica para Virtual Zone | Unity 6, C#, Blender |
-| [Bubble Buddies](https://vicente-torres-gallo.vercel.app/proyectos/bubble-buddies/) | 🏆 1.er puesto en la GameJam Alicante 2025: plataformas controlado con la voz | Unity, Blender |
 | [Donut Panic!](https://vicente-torres-gallo.vercel.app/proyectos/donut-panic/) | FPS sobre un motor gráfico y de juego propios, en equipo de 5 | C++, motor propio |
 | [Forgotten Wonders](https://vicente-torres-gallo.vercel.app/proyectos/forgotten-wonders/) | RPG con combates por minijuegos y enemigos con A* | C++, SFML |
 | [Cosmic Muncher](https://vicente-torres-gallo.vercel.app/proyectos/cosmic-muncher/) | Juego para la Game Boy original con motor ECS. **Jugable en la web** | Ensamblador |

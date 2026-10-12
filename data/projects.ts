@@ -42,6 +42,57 @@ const img = (project: string, file: string) => `/images/projects/${project}/${fi
 
 export const projects: Project[] = [
   {
+    id: "bubble-buddies",
+    category: "games",
+    title: "Bubble Buddies",
+    year: "2025",
+    featured: true,
+    cover: img("bubble-buddies", "og.jpg"),
+    gallery: [
+      { src: img("bubble-buddies", "shot-1.jpg") },
+      { src: img("bubble-buddies", "shot-2.jpg") },
+      { src: img("bubble-buddies", "shot-3.jpg") },
+      { src: img("bubble-buddies", "shot-4.jpg") },
+      { src: img("bubble-buddies", "shot-5.jpg") },
+      { src: img("bubble-buddies", "shot-6.jpg") },
+      {
+        src: img("bubble-buddies", "shot-7.jpg"),
+        caption: { es: "El equipo recogiendo el primer premio de la GameJam Alicante 2025", en: "The team receiving first prize at GameJam Alicante 2025" },
+      },
+    ],
+    highlight: { es: "🏆 1.er puesto · GameJam Alicante 2025", en: "🏆 1st place · GameJam Alicante 2025" },
+    tags: ["Unity", "Blender", "Game Jam", { es: "Control por voz", en: "Voice control" }],
+    summary: {
+      es: "Plataformas 3D controlado con la voz, hecho en menos de 48 horas. Primer puesto en la GameJam Alicante 2025.",
+      en: "Voice-controlled 3D platformer made in under 48 hours. First place at GameJam Alicante 2025.",
+    },
+    body: {
+      es: [
+        "Eres un ácaro del polvo con ansiedad social metido en una pompa de jabón. Tienes que cruzar el baño para reunirte con el patito de goma de la bañera, el único compañero que crees que te entiende de verdad.",
+        "Para avanzar, apuntas con la cámara hacia donde quieres ir y haces ruido al micrófono. El juego trata la conexión, la confianza y cómo superar el aislamiento a través de amistades inesperadas.",
+        "Lo desarrollamos en equipo con Icy Beak Studio en menos de 48 horas durante la Global Game Jam, en la sede de la GameJam Alicante 2025, donde ganamos el primer puesto.",
+      ],
+      en: [
+        "You're a dust mite with social anxiety inside a soap bubble. You have to cross the bathroom to reunite with the rubber duck in the bathtub, the one companion you believe truly understands you.",
+        "To move, you point the camera where you want to go and make noise into your microphone. The game explores connection, trust and overcoming isolation through unexpected friendships.",
+        "We built it as a team with Icy Beak Studio in under 48 hours during the Global Game Jam, at the GameJam Alicante 2025 venue, where we won first place.",
+      ],
+    },
+    features: [
+      { es: "Movimiento controlado con el micrófono (o con la tecla W).", en: "Movement driven by the microphone (or the W key)." },
+      { es: "Puntos de control para reaparecer con la tecla R.", en: "Checkpoints to respawn with the R key." },
+      { es: "Escenario 3D de un baño a escala de ácaro.", en: "A 3D bathroom at dust-mite scale." },
+    ],
+    facts: {
+      context: "Global Game Jam · GameJam Alicante 2025",
+      platform: "Windows",
+      tech: "Unity · Blender · Audacity",
+      team: "Icy Beak Studio",
+      duration: { es: "Menos de 48 horas", en: "Under 48 hours" },
+    },
+    links: [{ kind: "itch", url: "https://jsala.itch.io/bubblebuddies" }],
+  },
+  {
     id: "escape-vr",
     category: "games",
     title: "EscAPE",
@@ -131,57 +182,6 @@ export const projects: Project[] = [
       { kind: "repo", url: gh("Escape-Room-Lab") },
       { kind: "download", url: "https://drive.google.com/drive/folders/166joykuvenDGUOKrfLaLsOWbfPDy-2ou?usp=sharing" },
     ],
-  },
-  {
-    id: "bubble-buddies",
-    category: "games",
-    title: "Bubble Buddies",
-    year: "2025",
-    featured: true,
-    cover: img("bubble-buddies", "og.jpg"),
-    gallery: [
-      { src: img("bubble-buddies", "shot-1.jpg") },
-      { src: img("bubble-buddies", "shot-2.jpg") },
-      { src: img("bubble-buddies", "shot-3.jpg") },
-      { src: img("bubble-buddies", "shot-4.jpg") },
-      { src: img("bubble-buddies", "shot-5.jpg") },
-      { src: img("bubble-buddies", "shot-6.jpg") },
-      {
-        src: img("bubble-buddies", "shot-7.jpg"),
-        caption: { es: "El equipo recogiendo el primer premio de la GameJam Alicante 2025", en: "The team receiving first prize at GameJam Alicante 2025" },
-      },
-    ],
-    highlight: { es: "🏆 1.er puesto · GameJam Alicante 2025", en: "🏆 1st place · GameJam Alicante 2025" },
-    tags: ["Unity", "Blender", "Game Jam", { es: "Control por voz", en: "Voice control" }],
-    summary: {
-      es: "Plataformas 3D controlado con la voz, hecho en menos de 48 horas. Primer puesto en la GameJam Alicante 2025.",
-      en: "Voice-controlled 3D platformer made in under 48 hours. First place at GameJam Alicante 2025.",
-    },
-    body: {
-      es: [
-        "Eres un ácaro del polvo con ansiedad social metido en una pompa de jabón. Tienes que cruzar el baño para reunirte con el patito de goma de la bañera, el único compañero que crees que te entiende de verdad.",
-        "Para avanzar, apuntas con la cámara hacia donde quieres ir y haces ruido al micrófono. El juego trata la conexión, la confianza y cómo superar el aislamiento a través de amistades inesperadas.",
-        "Lo desarrollamos en equipo con Icy Beak Studio en menos de 48 horas durante la Global Game Jam, en la sede de la GameJam Alicante 2025, donde ganamos el primer puesto.",
-      ],
-      en: [
-        "You're a dust mite with social anxiety inside a soap bubble. You have to cross the bathroom to reunite with the rubber duck in the bathtub, the one companion you believe truly understands you.",
-        "To move, you point the camera where you want to go and make noise into your microphone. The game explores connection, trust and overcoming isolation through unexpected friendships.",
-        "We built it as a team with Icy Beak Studio in under 48 hours during the Global Game Jam, at the GameJam Alicante 2025 venue, where we won first place.",
-      ],
-    },
-    features: [
-      { es: "Movimiento controlado con el micrófono (o con la tecla W).", en: "Movement driven by the microphone (or the W key)." },
-      { es: "Puntos de control para reaparecer con la tecla R.", en: "Checkpoints to respawn with the R key." },
-      { es: "Escenario 3D de un baño a escala de ácaro.", en: "A 3D bathroom at dust-mite scale." },
-    ],
-    facts: {
-      context: "Global Game Jam · GameJam Alicante 2025",
-      platform: "Windows",
-      tech: "Unity · Blender · Audacity",
-      team: "Icy Beak Studio",
-      duration: { es: "Menos de 48 horas", en: "Under 48 hours" },
-    },
-    links: [{ kind: "itch", url: "https://jsala.itch.io/bubblebuddies" }],
   },
   {
     id: "donut-panic",

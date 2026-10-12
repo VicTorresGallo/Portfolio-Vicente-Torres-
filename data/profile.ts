@@ -1,4 +1,4 @@
-import type { Localized } from "./dictionary";
+import type { Localized, Text } from "./dictionary";
 
 export const profile = {
   name: "Vicente Torres Gallo",
@@ -65,6 +65,15 @@ export const profile = {
     { group: { es: "Motores y 3D", en: "Engines & 3D" } as Localized, items: ["Unity", "Unreal Engine", "Blueprints", "SFML", "Blender", "3ds Max", "Meta Quest / VR"] },
     { group: { es: "Web y móvil", en: "Web & mobile" } as Localized, items: ["Angular", "React", "Node.js", "Express", "Ionic / Capacitor", "Android Studio", "Socket.IO"] },
     { group: { es: "Datos y sistemas", en: "Data & systems" } as Localized, items: ["MySQL", "SQLite", "MongoDB", "Linux", "Networking (TCP/IP)", "Git"] },
+    {
+      group: { es: "Inteligencia artificial", en: "Artificial intelligence" } as Localized,
+      items: [
+        "Claude Code",
+        { es: "Desarrollo asistido por IA", en: "AI-assisted development" },
+        { es: "Revisión de código generado", en: "Reviewing generated code" },
+        { es: "Diagnóstico de errores con IA", en: "AI-assisted debugging" },
+      ] as Text[],
+    },
   ],
 
   languages: [
