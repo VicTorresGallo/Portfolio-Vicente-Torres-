@@ -2,7 +2,7 @@
 
 Ingeniero Multimedia por la Universidad de Alicante. Desarrollo **videojuegos y experiencias interactivas** (Unreal Engine, Unity, C++) y **aplicaciones web full-stack** (Angular, Node, React).
 
-**[Ver la web](https://vicente-torres-gallo.vercel.app)** · **[CV en PDF](public/cv/Vicente-Torres-Gallo-CV-ES.pdf)** ([English](public/cv/Vicente-Torres-Gallo-CV-EN.pdf)) · **[LinkedIn](https://www.linkedin.com/in/vicente-torres-gallo-353501264)** · vicentorresgallo@gmail.com
+**[Ver la web](https://vicente-torres-gallo.vercel.app)** · **[CV en PDF](public/cv/Vicente-Torres-Gallo-CV-ES.pdf)** ([English](public/cv/Vicente-Torres-Gallo-CV-EN.pdf)) · **[LinkedIn](https://www.linkedin.com/in/vicentetorresgallo)** · vicentorresgallo@gmail.com
 
 ![Portada del portfolio](public/images/projects/portfolio/cover.jpg)
 

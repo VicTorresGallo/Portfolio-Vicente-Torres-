@@ -16,7 +16,7 @@ export const profile = {
   // URL pública en Vercel. Si cambias el nombre del proyecto en Vercel, actualízala aquí
   website: "https://vicente-torres-gallo.vercel.app",
   github: "https://github.com/VicTorresGallo",
-  linkedin: "https://www.linkedin.com/in/vicente-torres-gallo-353501264",
+  linkedin: "https://www.linkedin.com/in/vicentetorresgallo",
   location: { es: "Alicante, España", en: "Alicante, Spain" } as Localized,
 
   about: {
