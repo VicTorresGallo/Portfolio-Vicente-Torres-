@@ -27,10 +27,7 @@ export const dictionary = {
     skillsTitle: "Habilidades",
     languagesTitle: "Idiomas",
     contactTitle: "Contacto",
-    contactText:
-      "¿Tienes un proyecto, una oferta de prácticas o simplemente quieres hablar? Escríbeme.",
     downloadCv: "Descargar CV",
-    footer: "Hecho con Next.js",
     switchTo: "EN",
     switchLabel: "Switch to English",
     themeLight: "Cambiar a modo claro",
@@ -64,10 +61,7 @@ export const dictionary = {
     skillsTitle: "Skills",
     languagesTitle: "Languages",
     contactTitle: "Contact",
-    contactText:
-      "Have a project, an internship offer or just want to talk? Drop me a message.",
     downloadCv: "Download CV",
-    footer: "Built with Next.js",
     switchTo: "ES",
     switchLabel: "Cambiar a español",
     themeLight: "Switch to light mode",
