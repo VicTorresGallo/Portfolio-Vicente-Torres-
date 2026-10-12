@@ -60,7 +60,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
               {project.highlight[lang]}
             </p>
           )}
-          <h1 data-intro>{title}</h1>
+          <h1 data-mask data-intro-mask>
+            <span>{title}</span>
+          </h1>
           <p className="detail-summary" data-intro>{project.summary[lang]}</p>
           <ul className="tags" data-intro>
             {project.tags.map((tag) => {

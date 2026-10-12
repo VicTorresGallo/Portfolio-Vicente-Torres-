@@ -46,10 +46,13 @@ export default function Home() {
       <main id="top" className="container" ref={main}>
         <section className="hero">
           <div className="hero-text">
-            <h1 data-intro>
-              {profile.name.split(" ")[0]}
-              <br />
-              <span>{profile.name.split(" ").slice(1).join(" ")}</span>
+            <h1>
+              <span className="line" data-mask data-intro-mask>
+                <span>{profile.name.split(" ")[0]}</span>
+              </span>
+              <span className="line line--accent" data-mask data-intro-mask>
+                <span>{profile.name.split(" ").slice(1).join(" ")}</span>
+              </span>
             </h1>
             <p className="role" data-intro>
               {t.role}
@@ -85,7 +88,9 @@ export default function Home() {
         </section>
 
         <section className="section about">
-          <h2 data-reveal>{t.aboutTitle}</h2>
+          <h2 data-mask>
+            <span>{t.aboutTitle}</span>
+          </h2>
           <div className="about-body" data-reveal>
             {profile.about[lang].map((p) => (
               <p key={p}>{p}</p>
@@ -97,7 +102,9 @@ export default function Home() {
         </section>
 
         <section id="experience" className="section">
-          <h2 data-reveal>{t.nav.experience}</h2>
+          <h2 data-mask>
+            <span>{t.nav.experience}</span>
+          </h2>
           <div className="columns">
             <div data-reveal>
               <h3 className="col-title">
@@ -137,7 +144,9 @@ export default function Home() {
         </section>
 
         <section id="skills" className="section">
-          <h2 data-reveal>{t.skillsTitle}</h2>
+          <h2 data-mask>
+            <span>{t.skillsTitle}</span>
+          </h2>
           <div className="skills">
             {profile.skills.map((s) => (
               <div key={s.group.en} className="skill-group" data-reveal>
@@ -181,7 +190,9 @@ export default function Home() {
         <Projects category="games" />
 
         <section id="contact" className="section contact">
-          <h2 data-reveal>{t.contactTitle}</h2>
+          <h2 data-mask>
+            <span>{t.contactTitle}</span>
+          </h2>
           <a className="contact-mail" href={`mailto:${profile.email}`} data-reveal>
             {profile.email}
           </a>

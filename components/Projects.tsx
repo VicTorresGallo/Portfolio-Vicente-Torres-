@@ -10,7 +10,9 @@ export default function Projects({ category }: { category: Project["category"] }
 
   return (
     <section id={category} className="section">
-      <h2 data-reveal>{t.categories[category]}</h2>
+      <h2 data-mask>
+        <span>{t.categories[category]}</span>
+      </h2>
       <div className="grid">
         {visible.map((p) => (
           <ProjectCard key={p.id} project={p} />
