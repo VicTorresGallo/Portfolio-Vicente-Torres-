@@ -13,9 +13,6 @@
   --accent: #5cb4ff;
   --accent-2: #ffb547;
   --on-accent: #04121f;
-  --avatar-from: #1b3a5c;
-  --avatar-to: #0e2238;
-  --glow: rgb(92 180 255 / .35);
   --card-shadow: none;
   --radius: 14px;
 }
@@ -35,9 +32,6 @@
   --accent: #c2410c;
   --accent-2: #a15c07;
   --on-accent: #ffffff;
-  --avatar-from: #f6dccb;
-  --avatar-to: #ecc3a7;
-  --glow: rgb(194 65 12 / .28);
   --card-shadow: 0 1px 2px rgb(31 36 48 / .05), 0 10px 28px -14px rgb(31 36 48 / .18);
 }
 
@@ -58,6 +52,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 
 .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+/* Animaciones (GSAP) */
+.motion-pending [data-intro], .motion-pending [data-intro-photo], .motion-pending [data-reveal] { visibility: hidden; }
 
 /* Nav */
 .nav {
@@ -101,8 +98,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .avatar {
   position: relative; width: 260px; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
   display: grid; place-items: center;
-  background: linear-gradient(135deg, var(--avatar-from), var(--avatar-to));
-  border: 6px solid var(--surface-2); box-shadow: 0 0 0 1px var(--border), 0 30px 60px -20px var(--glow);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
   font-family: var(--font-display); font-size: 5rem; font-weight: 700; color: var(--accent);
 }
 .avatar img { object-fit: cover; }
@@ -141,6 +138,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .card-playable { margin: 0; color: var(--accent) !important; font-weight: 700; font-size: .85rem !important; }
 .card-highlight { margin: 0; color: var(--accent-2) !important; font-weight: 600; font-size: .85rem !important; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags li { display: inline-flex; align-items: center; gap: 6px; }
+.tech-icon { display: inline-flex; flex: none; opacity: .85; }
 .tags li {
   font-size: .78rem; padding: 3px 9px; border-radius: 999px;
   background: var(--surface-2); border: 1px solid var(--border); color: var(--tag-text);
@@ -233,7 +232,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* Experience / education */
 .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.col-title { font-size: .85rem; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); margin-bottom: 18px; }
+.col-title { display: flex; align-items: center; gap: 8px; font-size: .85rem; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); margin-bottom: 18px; }
 .timeline { border-left: 2px solid var(--border); padding-left: 22px; display: grid; gap: 28px; }
 .timeline > li { position: relative; }
 .timeline > li::before {
@@ -251,7 +250,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* Skills */
 .skills { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
 .skill-group { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--card-shadow); }
-.skill-group h3 { font-size: 1rem; margin-bottom: 12px; }
+.skill-group h3 { display: flex; align-items: center; gap: 10px; font-size: 1rem; margin-bottom: 14px; }
+.skill-icon {
+  display: grid; place-items: center; width: 32px; height: 32px; flex: none; border-radius: 9px;
+  background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent);
+}
 .skill-group .tags li { font-size: .85rem; }
 .langs { display: grid; gap: 8px; }
 .langs li { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border); padding-bottom: 6px; }
@@ -259,7 +262,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* Contact */
 .contact { text-align: center; padding-bottom: 80px; }
-.contact p { color: var(--muted); margin: 0 auto 12px; max-width: 520px; }
 .contact-mail {
   display: inline-block; font-family: var(--font-display); font-size: clamp(1.2rem, 4vw, 2rem); font-weight: 700;
   color: var(--accent); text-decoration: none; word-break: break-all;

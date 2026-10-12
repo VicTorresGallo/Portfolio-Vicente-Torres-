@@ -99,3 +99,123 @@ export function GlobeIcon({ size = 16 }: IconProps) {
     </svg>
   );
 }
+
+// Iconos de línea para grupos y tecnologías sin logo oficial
+const line = (size: number) => ({
+  ...base(size),
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.8,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+});
+
+export function CodeIcon({ size = 16 }: IconProps) {
+  return (
+    <svg {...line(size)}>
+      <path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" />
+    </svg>
+  );
+}
+
+export function CubeIcon({ size = 16 }: IconProps) {
+  return (
+    <svg {...line(size)}>
+      <path d="M12 2.5 3.5 7v10l8.5 4.5 8.5-4.5V7L12 2.5Z" />
+      <path d="M3.5 7 12 11.5 20.5 7M12 11.5v10" />
+    </svg>
+  );
+}
+
+export function DevicesIcon({ size = 16 }: IconProps) {
+  return (
+    <svg {...line(size)}>
+      <rect x="2" y="4" width="15" height="11" rx="1.5" />
+      <path d="M6 19h7M9.5 15v4" />
+      <rect x="16" y="9" width="6" height="11" rx="1.2" />
+    </svg>
+  );
+}
+
+export function DatabaseIcon({ size = 16 }: IconProps) {
+  return (
+    <svg {...line(size)}>
+      <ellipse cx="12" cy="5.5" rx="8" ry="3" />
+      <path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" />
+    </svg>
+  );
+}
+
+export function SparklesIcon({ size = 16 }: IconProps) {
+  return (
+    <svg {...line(size)}>
+      <path d="M10 3.5 11.6 8a2 2 0 0 0 1.4 1.4l4.5 1.6-4.5 1.6a2 2 0 0 0-1.4 1.4L10 18.5 8.4 14a2 2 0 0 0-1.4-1.4L2.5 11 7 9.4A2 2 0 0 0 8.4 8L10 3.5ZM18.5 2.5v4M16.5 4.5h4M19 16v3M17.5 17.5h3" />
+    </svg>
+  );
+}
+
+export function TranslateIcon({ size = 16 }: IconProps) {
+  return (
+    <svg {...line(size)}>
+      <path d="M3 5h9M7.5 3v2M5 5c.8 3.4 3 6 6 7.5M10 5c-.8 3.6-3.2 6.6-7 8.5M12.5 21l4-9 4 9M14 18h5" />
+    </svg>
+  );
+}
+
+export function ChipIcon({ size = 16 }: IconProps) {
+  return (
+    <svg {...line(size)}>
+      <rect x="6" y="6" width="12" height="12" rx="1.5" />
+      <path d="M9.5 9.5h5v5h-5zM9 2.5V6M15 2.5V6M9 18v3.5M15 18v3.5M2.5 9H6M2.5 15H6M18 9h3.5M18 15h3.5" />
+    </svg>
+  );
+}
+
+export function NodesIcon({ size = 16 }: IconProps) {
+  return (
+    <svg {...line(size)}>
+      <rect x="2.5" y="4" width="7" height="5.5" rx="1.2" />
+      <rect x="14.5" y="14.5" width="7" height="5.5" rx="1.2" />
+      <rect x="14.5" y="4" width="7" height="5.5" rx="1.2" />
+      <path d="M9.5 6.8h5M9.5 6.8c3 0 2 10.4 5 10.4" />
+    </svg>
+  );
+}
+
+export function NetworkIcon({ size = 16 }: IconProps) {
+  return (
+    <svg {...line(size)}>
+      <rect x="9" y="2.5" width="6" height="5" rx="1" />
+      <rect x="2.5" y="16.5" width="6" height="5" rx="1" />
+      <rect x="15.5" y="16.5" width="6" height="5" rx="1" />
+      <path d="M12 7.5v4.5M5.5 16.5V12h13v4.5" />
+    </svg>
+  );
+}
+
+export function HashIcon({ size = 16 }: IconProps) {
+  return (
+    <svg {...line(size)}>
+      <path d="M12 2.5 3.8 7.2v9.6L12 21.5l8.2-4.7V7.2L12 2.5Z" />
+      <path d="M10.3 8.5 9.3 15.5M14.7 8.5l-1 7M8.5 10.5h7M8.3 13.5h7" />
+    </svg>
+  );
+}
+
+export function BriefcaseIcon({ size = 16 }: IconProps) {
+  return (
+    <svg {...line(size)}>
+      <rect x="2.5" y="7" width="19" height="13" rx="2" />
+      <path d="M8.5 7V5a1.5 1.5 0 0 1 1.5-1.5h4A1.5 1.5 0 0 1 15.5 5v2M2.5 12.5h19" />
+    </svg>
+  );
+}
+
+export function CapIcon({ size = 16 }: IconProps) {
+  return (
+    <svg {...line(size)}>
+      <path d="M12 4 1.5 9 12 14l10.5-5L12 4Z" />
+      <path d="M6 11.2V16c0 1.3 2.7 3 6 3s6-1.7 6-3v-4.8M21 9.5v5" />
+    </svg>
+  );
+}

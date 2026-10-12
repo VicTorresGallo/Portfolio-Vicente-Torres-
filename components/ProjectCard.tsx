@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import ProjectCover from "./ProjectCover";
+import TechIcon from "./TechIcon";
 import { useLanguage } from "./LanguageProvider";
 import { tr } from "@/data/dictionary";
 import type { Project } from "@/data/projects";
@@ -11,7 +12,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   const title = tr(project.title, lang);
 
   return (
-    <article className={`card${project.featured ? " card--featured" : ""}`}>
+    <article className={`card${project.featured ? " card--featured" : ""}`} data-reveal>
       <div className="card-media">
         <ProjectCover project={project} title={title} sizes="(max-width: 800px) 100vw, 360px" />
         <span className="card-year">{project.year}</span>
@@ -30,7 +31,12 @@ export default function ProjectCard({ project }: { project: Project }) {
         <ul className="tags">
           {project.tags.map((tag) => {
             const label = tr(tag, lang);
-            return <li key={label}>{label}</li>;
+            return (
+                <li key={label}>
+                  <TechIcon label={label} />
+                  {label}
+                </li>
+              );
           })}
         </ul>
         <span className="card-more" aria-hidden>
