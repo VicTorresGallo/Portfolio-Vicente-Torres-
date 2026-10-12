@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Cosmic Muncher · Game Boy</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #0a1420; overflow: hidden; }
+    #game { width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <div id="game"></div>
+  <script>
+    // Emulador de Game Boy (EmulatorJS + núcleo Gambatte) con la ROM original de Cosmic Muncher.
+    // Versión fijada para que una actualización del CDN no rompa el juego.
+    EJS_player = "#game";
+    EJS_core = "gb";
+    EJS_gameName = "Cosmic Muncher";
+    EJS_gameUrl = "CosmicMuncher.gb";
+    EJS_pathtodata = "https://cdn.emulatorjs.org/4.2.3/data/";
+    EJS_startOnLoaded = true;
+    EJS_color = "#5cb4ff";
+    EJS_backgroundColor = "#0a1420";
+    EJS_Buttons = { netplay: false, cheat: false, saveSavFiles: false, loadSavFiles: false, quickSave: false, quickLoad: false, screenRecord: false };
+    // La cabecera de la ROM marca compatibilidad con Game Boy Color (byte 0x143 = 0x80) y en ese modo
+    // el fondo no se dibuja. Se fuerza la Game Boy clásica con su paleta verde original.
+    EJS_defaultOptions = {
+      gambatte_gb_hwmode: "GB",
+      gambatte_gb_colorization: "internal",
+      gambatte_gb_internal_palette: "GB - DMG",
+    };
+  </script>
+  <script src="https://cdn.emulatorjs.org/4.2.3/data/loader.js"></script>
+</body>
+</html>

@@ -19,6 +19,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       <div className="card-body">
         {project.highlight && <p className="card-highlight">{project.highlight[lang]}</p>}
+        {project.play && <p className="card-playable">{t.playable}</p>}
         <h3>
           {/* El enlace se estira por CSS para que toda la tarjeta sea clicable */}
           <Link href={`/proyectos/${project.id}/`} className="card-link">

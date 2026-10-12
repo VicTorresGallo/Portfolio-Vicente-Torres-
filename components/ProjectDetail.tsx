@@ -27,6 +27,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
   const { lang, t } = useLanguage();
   const title = tr(project.title, lang);
   const [zoomed, setZoomed] = useState<number | null>(null);
+  const [playing, setPlaying] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
 
   // Siguiente proyecto de la misma categoría (vuelve al primero al llegar al final)
@@ -135,6 +136,37 @@ export default function ProjectDetail({ project }: { project: Project }) {
             )}
           </aside>
         </div>
+
+        {project.play && (
+          <section className="detail-section">
+            <h2>{t.play}</h2>
+            <div className="player" style={{ aspectRatio: project.play.aspect ?? "16 / 9" }}>
+              {playing ? (
+                <iframe
+                  src={asset(project.play.src)}
+                  title={`${title} – ${t.play}`}
+                  allow="autoplay; fullscreen; gamepad"
+                  allowFullScreen
+                />
+              ) : (
+                // El emulador solo se descarga cuando alguien decide jugar
+                <button className="player-start" onClick={() => setPlaying(true)}>
+                  {project.cover && (
+                    <Image
+                      src={asset(project.cover)}
+                      alt=""
+                      fill
+                      sizes="(max-width: 800px) 100vw, 700px"
+                      className={project.pixelated ? "pixel" : undefined}
+                    />
+                  )}
+                  <span className="player-cta">▶ {t.playStart}</span>
+                </button>
+              )}
+            </div>
+            {project.play.hint && <p className="player-hint">{project.play.hint[lang]}</p>}
+          </section>
+        )}
 
         {project.youtube && (
           <section className="detail-section">

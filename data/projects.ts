@@ -32,6 +32,8 @@ export type Project = {
   facts?: Partial<Record<FactKey, Text>>;
   // ID de un vídeo de YouTube para incrustarlo en la página del proyecto
   youtube?: string;
+  // Juego jugable en el navegador: página dentro de public/ que se carga en un iframe al pulsar «Jugar»
+  play?: { src: string; aspect?: string; hint?: Localized };
   links?: { kind: LinkKind; url: string; label?: Text }[];
 };
 
@@ -282,6 +284,14 @@ export const projects: Project[] = [
       duration: { es: "7 semanas", en: "7 weeks" },
     },
     youtube: "mj4YTr-U1gk",
+    play: {
+      src: "/games/cosmic-muncher/",
+      aspect: "10 / 9",
+      hint: {
+        es: "Flechas para moverte y Enter para Start. En móvil aparece un mando táctil. Es el juego original de Game Boy, emulado con EmulatorJS.",
+        en: "Arrow keys to move and Enter for Start. On mobile a touch gamepad appears. This is the original Game Boy game, emulated with EmulatorJS.",
+      },
+    },
     links: [{ kind: "itch", url: "https://roscarul.itch.io/cosmic-muncher" }],
   },
   {

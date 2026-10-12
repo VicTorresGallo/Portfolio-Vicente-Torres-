@@ -15,7 +15,7 @@ Ingeniero Multimedia por la Universidad de Alicante. Desarrollo **videojuegos y 
 | [Bubble Buddies](https://vicente-torres-gallo.vercel.app/proyectos/bubble-buddies/) | 🏆 1.er puesto en la GameJam Alicante 2025: plataformas controlado con la voz | Unity, Blender |
 | [Donut Panic!](https://vicente-torres-gallo.vercel.app/proyectos/donut-panic/) | FPS sobre un motor gráfico y de juego propios, en equipo de 5 | C++, motor propio |
 | [Forgotten Wonders](https://vicente-torres-gallo.vercel.app/proyectos/forgotten-wonders/) | RPG con combates por minijuegos y enemigos con A* | C++, SFML |
-| [Cosmic Muncher](https://vicente-torres-gallo.vercel.app/proyectos/cosmic-muncher/) | Juego para la Game Boy original con motor ECS | Ensamblador |
+| [Cosmic Muncher](https://vicente-torres-gallo.vercel.app/proyectos/cosmic-muncher/) | Juego para la Game Boy original con motor ECS. **Jugable en la web** | Ensamblador |
 | [Registro de Fichajes](https://vicente-torres-gallo.vercel.app/proyectos/registro-fichajes/) | App multiplataforma de control horario con geolocalización | Angular, Ionic, Node, MySQL |
 | [ToDo App + microservicios](https://vicente-torres-gallo.vercel.app/proyectos/todo-app/) | SPA con API REST y autenticación JWT | Angular, Express, MongoDB |
 
@@ -30,6 +30,7 @@ Hecha con **Next.js 16** (App Router), **React 19** y **TypeScript**, exportada 
 - **Modo claro y oscuro sin parpadeo:** un script mínimo aplica el tema guardado (o el del sistema) antes de pintar la página.
 - **CV generado desde los mismos datos:** `/curriculum/es` y `/curriculum/en` son páginas A4 que se imprimen a PDF, así que la web y el CV no se desincronizan.
 - **Páginas de proyecto estáticas** con `generateStaticParams`, galería con visor (`<dialog>` nativo) y vídeos de YouTube incrustados sin cookies.
+- **Cosmic Muncher se juega en el navegador:** la ROM original de Game Boy corre en un emulador (EmulatorJS) que solo se descarga al pulsar «Jugar».
 - **Diseño adaptado a móvil** y accesible: navegación por teclado, `aria-*` y respeto a `prefers-reduced-motion`.
 
 ```

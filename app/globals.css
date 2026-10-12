@@ -140,6 +140,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .card-link:focus-visible { outline: none; }
 .card:has(.card-link:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
 .card-more { margin-top: auto; padding-top: 4px; color: var(--accent); font-weight: 600; font-size: .9rem; }
+.card-playable { margin: 0; color: var(--accent) !important; font-weight: 700; font-size: .85rem !important; }
 .card-highlight { margin: 0; color: var(--accent-2) !important; font-weight: 600; font-size: .85rem !important; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tags li {
@@ -193,6 +194,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .detail-section { margin-top: 56px; }
 .video { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); background: #000; }
 .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.player { position: relative; max-width: 720px; margin: 0 auto; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); background: #0a1420; }
+.player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.player-start { position: absolute; inset: 0; padding: 0; border: 0; cursor: pointer; background: #0a1420; display: grid; place-items: center; }
+.player-start img { object-fit: cover; opacity: .55; transition: opacity .2s; }
+.player-start img.pixel { image-rendering: pixelated; }
+.player-start:hover img { opacity: .4; }
+.player-cta { position: relative; padding: 14px 26px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font: 700 1.1rem var(--font-display, system-ui); box-shadow: 0 10px 30px rgb(0 0 0 / .35); }
+.player-hint { max-width: 720px; margin: 12px auto 0; color: var(--muted); font-size: .9rem; text-align: center; }
 .gallery { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
 .gallery-item {
   position: relative; aspect-ratio: 16 / 10; padding: 0; border: 1px solid var(--border); border-radius: 10px;
