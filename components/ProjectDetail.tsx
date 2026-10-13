@@ -51,21 +51,21 @@ export default function ProjectDetail({ project }: { project: Project }) {
     <>
       <Nav />
       <main className="container detail" ref={main}>
-        <Link href={`/#${project.category}`} className="back" data-intro>
+        <Link href={`/#${project.category}`} className="back">
           ← {t.back} · {t.categories[project.category]}
         </Link>
 
         <header className="detail-head">
           {project.highlight && (
-            <p className="card-highlight" data-intro>
+            <p className="card-highlight">
               {project.highlight[lang]}
             </p>
           )}
-          <h1 data-mask data-intro-mask>
+          <h1>
             <span>{title}</span>
           </h1>
-          <p className="detail-summary" data-intro>{project.summary[lang]}</p>
-          <ul className="tags" data-intro>
+          <p className="detail-summary">{project.summary[lang]}</p>
+          <ul className="tags">
             {project.tags.map((tag) => {
               const label = tr(tag, lang);
               return (
@@ -78,7 +78,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
           </ul>
         </header>
 
-        <div data-intro-photo>
+        <div>
           <ProjectCover
             project={project}
             title={title}
@@ -91,7 +91,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         <div className="detail-grid">
           <div className="detail-main">
             {project.body && (
-              <section data-reveal>
+              <section>
                 <h2>{t.overview}</h2>
                 {project.body[lang].map((p) => (
                   <p key={p}>{p}</p>
@@ -100,7 +100,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             )}
 
             {project.features && (
-              <section data-reveal>
+              <section>
                 <h2>{t.features}</h2>
                 <ul className="bullets">
                   {project.features.map((f) => (
@@ -111,7 +111,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             )}
 
             {project.role && (
-              <section data-reveal>
+              <section>
                 <h2>{t.myRole}</h2>
                 <p>{project.role[lang]}</p>
                 {project.roleDetails && (
@@ -125,7 +125,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             )}
           </div>
 
-          <aside className="detail-side" data-reveal>
+          <aside className="detail-side">
             <h2>{t.details}</h2>
             <dl>
               <div>
@@ -156,7 +156,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         </div>
 
         {project.play && (
-          <section className="detail-section" data-reveal>
+          <section className="detail-section">
             <h2>{t.play}</h2>
             <div className="player" style={{ aspectRatio: project.play.aspect ?? "16 / 9" }}>
               {playing ? (
@@ -187,7 +187,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         )}
 
         {project.youtube && (
-          <section className="detail-section" data-reveal>
+          <section className="detail-section">
             <h2>{t.video}</h2>
             <div className="video">
               <iframe
@@ -202,7 +202,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         )}
 
         {project.gallery && (
-          <section className="detail-section" data-reveal>
+          <section className="detail-section">
             <h2>{t.gallery}</h2>
             <div className={`gallery${project.pixelated ? " cover--pixel" : ""}${project.portraitGallery ? " gallery--portrait" : ""}`}>
               {project.gallery.map((g, i) => (

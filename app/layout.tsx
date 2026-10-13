@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 // Antes de pintar: aplica el tema guardado (o el del sistema) y, si hay animaciones,
-// oculta la portada hasta que GSAP arranque (a los 3 s se muestra pase lo que pase).
+// oculta las tarjetas animadas hasta que GSAP arranque (a los 3 s se muestran pase lo que pase).
 // Al recargar, empieza siempre arriba del todo (sin restaurar el scroll ni saltar al #ancla).
 const themeScript = `try{var d=document.documentElement,t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}d.dataset.theme=t}catch(e){}try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("motion-pending");setTimeout(function(){document.documentElement.classList.remove("motion-pending")},3000)}}catch(e){}try{history.scrollRestoration="manual";var n=performance.getEntriesByType("navigation")[0];if(n&&n.type==="reload"){if(location.hash)history.replaceState(null,"",location.pathname+location.search);window.scrollTo(0,0);addEventListener("load",function(){window.scrollTo(0,0)})}}catch(e){}`;
 

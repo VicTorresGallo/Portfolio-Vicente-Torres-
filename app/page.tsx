@@ -48,20 +48,20 @@ export default function Home() {
         <section className="hero">
           <div className="hero-text">
             <h1>
-              <span className="line" data-mask data-intro-mask>
+              <span className="line">
                 <span>{profile.name.split(" ")[0]}</span>
               </span>
-              <span className="line line--accent" data-mask data-intro-mask>
+              <span className="line line--accent">
                 <span>{profile.name.split(" ").slice(1).join(" ")}</span>
               </span>
             </h1>
-            <p className="role" data-intro>
+            <p className="role">
               {t.role}
             </p>
-            <p className="tagline" data-intro>
+            <p className="tagline">
               {t.tagline}
             </p>
-            <div className="actions" data-intro>
+            <div className="actions">
               <a className="btn btn--primary" href={`mailto:${profile.email}`}>
                 <MailIcon /> {t.nav.contact}
               </a>
@@ -79,7 +79,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="avatar" data-intro-photo>
+          <div className="avatar">
             {profile.photo ? (
               <Image src={asset(profile.photo)} alt={profile.name} fill sizes="260px" priority />
             ) : (
@@ -89,10 +89,10 @@ export default function Home() {
         </section>
 
         <section className="section about">
-          <h2 data-mask>
+          <h2>
             <span>{t.aboutTitle}</span>
           </h2>
-          <div className="about-body" data-reveal>
+          <div className="about-body">
             {profile.about[lang].map((p) => (
               <p key={p}>{p}</p>
             ))}
@@ -103,11 +103,11 @@ export default function Home() {
         </section>
 
         <section id="experience" className="section">
-          <h2 data-mask>
+          <h2>
             <span>{t.nav.experience}</span>
           </h2>
           <div className="columns">
-            <div data-reveal>
+            <div>
               <h3 className="col-title">
                 <BriefcaseIcon /> {t.experienceTitle}
               </h3>
@@ -126,7 +126,7 @@ export default function Home() {
                 ))}
               </ol>
             </div>
-            <div data-reveal>
+            <div>
               <h3 className="col-title">
                 <CapIcon /> {t.educationTitle}
               </h3>
@@ -145,7 +145,7 @@ export default function Home() {
         </section>
 
         <section id="skills" className="section">
-          <h2 data-mask>
+          <h2>
             <span>{t.skillsTitle}</span>
           </h2>
           <div className="skills">
@@ -191,13 +191,13 @@ export default function Home() {
         <Projects category="games" />
 
         <section id="contact" className="section contact">
-          <h2 data-mask>
+          <h2>
             <span>{t.contactTitle}</span>
           </h2>
-          <a className="contact-mail" href={`mailto:${profile.email}`} data-reveal>
+          <a className="contact-mail" href={`mailto:${profile.email}`}>
             {profile.email}
           </a>
-          <div className="actions" data-reveal>
+          <div className="actions">
             {profile.cv && (
               <a className="btn btn--primary" href={asset(profile.cv[lang])} download>
                 <DownloadIcon /> {t.downloadCv}
